@@ -1,20 +1,30 @@
-import React, {Component} from 'react';
-import CommentInput from './CommentInput.jsx';
-import CommentList from './CommentList.jsx';
+import React, {Component} from 'react'
+import CommentInput from './CommentInput'
+import CommentList from './CommentList'
 
 class CommentApp extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {  }
-  // }
+  constructor () {
+    super();
+    this.state = {
+      comments: []
+    }
+  }
+
+  handleSubmitComment(comment) {
+    this.state.comments.push(comment)
+    this.setState({
+      comments: this.state.comments
+    })
+    // console.log(comment)
+  }
   render() {
     return (
-      //className for css
       <div className='wrapper'>
-        <CommentList/>
+      <CommentInput onSubmit={this.handleSubmitComment.bind(this)} />
+      <CommentList/>
       </div>
-     )
+    )
   }
 }
 
-export default CommentApp;
+export default CommentApp
