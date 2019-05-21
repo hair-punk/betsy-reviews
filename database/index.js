@@ -25,4 +25,6 @@ let viewsSchema = mongoose.Schema({
 
 });
 
-let views = mongoose.model('Views', userSchema);
+let views = mongoose.model('Views', viewsSchema);
+
+module.exports = Views;
