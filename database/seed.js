@@ -1,12 +1,9 @@
-//  [
-//    "1": {
-//      stars: null,
-//      date: null,
-//      productPicture: null,
-//      productURL: null,
-//      reviewerName: null,
-//      reviewerPicture: null,
-//      reviewText: null,
-//      productPhotos: []
-//    },
-//  ]
+const seed = require('../database/seedFunction.js');
+
+seed.start((err) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('Seeding process Completed');
+});
