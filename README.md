@@ -35,15 +35,17 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
+#### Install
 npm install -g webpack
 npm install
-npm run react-dev
-npm run server-dev
-#### Database
-mongod start;
-sudo mongod --dbpath=/var/lib/mongodb;
-mongo;
+npm install db-seed --save-dev
+npm install moment --savesh
+#### Run
+mongod;
+mongo
+npm run seed
+npm start
+npm run react-dev (optional)
 
-Use the npm start script to start the server
-Open your browser on localhost: 3004
+Open your browser on localhost: 3005
 ```
