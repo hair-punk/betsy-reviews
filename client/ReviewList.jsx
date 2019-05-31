@@ -1,13 +1,13 @@
 import React from 'react';
-import Review from './Review.jsx';
+import Item from './Item.jsx';
 
-var ReviewList = (props) => (
+var ReviewList = ({items, handleClick}) => (
   <div className="jnz-reviewList">
-    <Review />
-    <Review />
-    <Review />
-    <Review />
+    {items.map((item, index) => {
+        return <Item key={index} item={item} handleClick={handleClick}/>
+
+    })}
   </div>
 )
 
-export default ReviewList;
+export default ReviewList

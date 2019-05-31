@@ -1,22 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReviewList from './ReviewList.jsx';
+// import More from './More.jsx';
 import axios from 'axios';
-
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    currentReview: null
+      otherItems: []
     }
   }
 
   componentDidMount() {
-    //Get 4 reviews from database.need to fix reviews
-      axios.get('http://localhost:3004/reviews')
+    //Get 5 items from database.
+    this.fetchItems();
+  }
+
+  clickItem() {
+    this.fetchItems();
+  }
+
+  fetchItems(next) {
+    axios.get('http://localhost:3005/items')
       .then((res) => {
-        console.log(res);
+        this.setState({
+          otherItems: res.data
+        });
+        if (next) {
+          next();
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -25,9 +38,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="reviews">
         <h1 className="jnz-title">Reviews</h1>
-        <ReviewList />
+        <ReviewList items={this.state.otherItems} handleClick={this.clickItem.bind(this)}/>
         <div className="jnz-more">
           <button className="jnz-add16More">+ More</button>
         </div>
@@ -39,10 +52,8 @@ class App extends React.Component {
            Photos from reviews
            ReviewList.map.pics
         </div>
-
       </div>
     );
   }
 }
-
-ReactDOM.render(<App />, document.getElementById('jnz-app'));
+ReactDOM.render(<App/> , document.getElementById('jnz-app'));
