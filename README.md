@@ -41,7 +41,7 @@ npm install
 npm install db-seed --save-dev
 npm install moment --savesh
 #### Run
-mongod;
+mongod
 mongo
 npm run seed
 npm start
