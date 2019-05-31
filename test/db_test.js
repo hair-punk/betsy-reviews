@@ -1,63 +1,66 @@
-"use strict";
-// NPM install mongoose and chai. Make sure mocha is globally
-// installed
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 const chai = require('chai');
 const expect = chai.expect;
 const db = require('../database/index.js');
+const seed = require('../database/seedFunction.js');
 
-// Create a new schema that accepts a 'name' object.
-// 'name' is a required field
-// const testSchema = new Schema({
-//   name: { type: String, required: true }
-// });
-// //Create a new collection called 'Name'
-// const Name = mongoose.model('Name', testSchema);
-// describe('Database Tests', function() {
-//   //Before starting the test, create a sandboxed database connection
-//   //Once a connection is established invoke done()
-//   before(function (done) {
-//     mongoose.connect('mongodb://localhost/testDatabase');
-//     const db = mongoose.connection;
-//     db.on('error', console.error.bind(console, 'connection error'));
-//     db.once('open', function() {
-//       console.log('We are connected to test database!');
-//       done();
-//     });
-//   });
-//   describe('Test Database', function() {
-//     //Save object with 'name' value of 'Mike"
-//     it('New name saved to test database', function(done) {
-//       var testName = Name({
-//         name: 'Mike'
-//       });
+describe('Database specification', () => {
+  beforeEach((done) => {
+    db.Product.deleteMany((err) => {
+      if (err) {
+        done(err);
+      }
+      done();
+    })
+  });
 
-//       testName.save(done);
-//     });
-//     it('Dont save incorrect format to database', function(done) {
-//       //Attempt to save with wrong info. An error should trigger
-//       var wrongSave = Name({
-//         notName: 'Not Mike'
-//       });
-//       wrongSave.save(err => {
-//         if(err) { return done(); }
-//         throw new Error('Should generate error!');
-//       });
-//     });
-//     it('Should retrieve data from test database', function(done) {
-//       //Look up the 'Mike' object previously saved.
-//       Name.find({name: 'Mike'}, (err, name) => {
-//         if(err) {throw err;}
-//         if(name.length === 0) {throw new Error('No data!');}
-//         done();
-//       });
-//     });
-//   });
-//   //After all tests are finished drop database and close connection
-//   after(function(done){
-//     mongoose.connection.db.dropDatabase(function(){
-//       mongoose.connection.close(done);
-//     });
-//   });
-// });
+
+  it('Should not have any documents', (done) => {
+    db.Product.find((err, results) => {
+      if (err) {
+        done(err);
+      }
+      expect(results).to.be.an('array');
+      expect(results.length).to.equal(0);
+      done();
+    });
+  });
+
+  it('Should contain one complete document', (done) => {
+    var newDoc = new db.Product({
+      name: 'Crayons',
+      owner: 'Jonathan Inc.',
+      price: 38.50,
+      imageUrl: 'http://lorempixel.com/640/480'
+    });
+
+    newDoc.save(() => {
+      db.Product.find((err, results) => {
+        if (err) {
+          done(err);
+        }
+        expect(results).to.be.an('array');
+        expect(results.length).to.equal(1);
+        expect(results[0].name).to.equal('Crayons');
+        done();
+      });
+    });
+  });
+
+  it('Should contain 100 documents', (done) => {
+    seed.start((err) => {
+      if (err) {
+        console.log('Error Seeding');
+        done(err);
+      }
+      db.Product.find((err, results) => {
+        if (err) {
+          console.log('Error finding seeded results');
+          done(err);
+        }
+        expect(results).to.be.an('array');
+        expect(results.length).to.equal(100);
+        done();
+      });
+    });
+  });
+});

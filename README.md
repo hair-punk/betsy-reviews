@@ -1,5 +1,6 @@
 
 # Project Name
+  Customer Reviews
 
 > Project description
 
@@ -36,4 +37,13 @@ From within the root directory:
 ```sh
 npm install -g webpack
 npm install
+npm run react-dev
+npm run server-dev
+#### Database
+mongod start;
+sudo mongod --dbpath=/var/lib/mongodb;
+mongo;
+
+Use the npm start script to start the server
+Open your browser on localhost: 3004
 ```
