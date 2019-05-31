@@ -39,7 +39,7 @@ products = {
     pictures: [ null ],
     reviewAverage: avg(this.reviews),
     numberReviews: this.reviews.lenght
-    otherItemsBySeller: [ otherprodcut, dino2, ]
+    othergBySeller: [ otherprodcut, dino2, ]
     reviews:  [
           "1": {
           stars:  null,

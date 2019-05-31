@@ -13,7 +13,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    //Get 5 items from database.
     this.fetchItems();
   }
 
