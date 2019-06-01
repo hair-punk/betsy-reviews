@@ -1,5 +1,6 @@
 
 # Project Name
+  Customer Reviews
 
 > Project description
 
@@ -34,6 +35,17 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
+#### Install
 npm install -g webpack
 npm install
+npm install db-seed --save-dev
+npm install moment --savesh
+#### Run
+mongod
+mongo
+npm run seed
+npm start
+npm run react-dev (optional)
+
+Open your browser on localhost: 3005
 ```

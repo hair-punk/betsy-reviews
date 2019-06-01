@@ -1,0 +1,77 @@
+
+// App choice: https://www.etsy.com/listing/270066526/name-crayons-handmade-crayon-set-for?ref=hp_rv-3&frs=1
+//We  weil be implementing the product page  It will have the shopping cart add functionality along with product info sidebar (trevor) . It will have photo carosel (ignacio). It will have reviews (add and get) (JohnnyZ). It will other products from this seller (Jonathan C).
+
+var apiEndpoints = [
+  'GET 3000/' //=> serves index.html - possibly different for each person'
+  'GET 3000/:name' //=> find the product by name '
+  'POST 3000/reviews/:name'// => add reviews '
+  'GET 3000/reviews/:name' //=>/gets all reviews for product'
+]
+
+//We are going to use MONGODB /Mongoose
+products = {
+  dinasaurCrayons: {
+    title:  null,
+    description: null,
+    price: null,
+    pictures [ null ]
+    reviewAverage: ,//avg(this.reviews),
+      numberReviews:  ,//this.reviews.lenght
+       otherItemsBySeller: [ otherprodcut, dino2, ]
+    reviews:  [
+          "1": {
+          stars:  null,
+          date: null,
+          productPicture: null,
+          productURL: null,
+          reviewerName: null,
+          reviewerPicture:  null,
+          reviewText: null,
+          productPhotos: []
+      },
+      ]
+  },
+  otherProduct: {
+    title:  null,
+    description: null,
+    price: null,
+    pictures: [ null ],
+    reviewAverage: avg(this.reviews),
+    numberReviews: this.reviews.lenght
+    othergBySeller: [ otherprodcut, dino2, ]
+    reviews:  [
+          "1": {
+          stars:  null,
+          date: null,
+          productPicture: null,
+          productURL: null,
+          reviewerName: null,
+          reviewerPicture:  null,
+          reviewText: null,
+          productPhotos: []
+      },
+      "2": {
+        stars:  null,
+        date: null,
+        productPicture: null,
+        productURL: null,
+        reviewerName: null,
+        reviewerPicture:  null,
+        reviewText: null,
+        productPhotos: []
+    },
+      "3": {
+        stars:  null,
+        date: null,
+        productPicture: null,
+        productURL: null,
+        reviewerName: null,
+        reviewerPicture:  null,
+        reviewText: null,
+        productPhotos: []
+  },
+      ],
+
+  },
+}
