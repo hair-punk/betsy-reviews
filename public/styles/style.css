@@ -1,4 +1,4 @@
-body {
+/* body {
   display: block;
   list-style-type: disc;
   margin-block-start: 1em;
@@ -6,16 +6,16 @@ body {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
-}
+} */
 
-.jnz-title {
+/* .jnz-title {
   color: hsl(0, 0%, 13%);
   font-family: "Graphik Webfont", -apple-system, BlinkMacSystemFont, "Roboto", "Droid Sans", "Segoe UI", "Helvetica", Arial, sans-serif;
   text-align: left;
   padding-top: 30px;
   font-size: 20px;
   font-weight: bold;
-}
+} */
 
 .jnz-container {
   font-size: 14px;
@@ -27,7 +27,7 @@ body {
   flex-wrap: wrap;
 }
 
-.jnz-item {
+/* .jnz-item {
   width: 100%;
   position: relative;
   flex-grow: 0;
@@ -36,7 +36,7 @@ body {
   display: inline-block;
   vertical-align: top;
   line-height: 22px;
-}
+} */
 
 /* .jnz-item:hover>.jnz-image {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
