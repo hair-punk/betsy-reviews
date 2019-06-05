@@ -30,10 +30,8 @@ This module contains:
   use <http://localhost:3005> for client side
   
   ## *_CRUD  Endpoints_* <br/>
-  -~~Create:~~  <br/>
-  -Read: ```'/items'```<br/>
-  -~~Update:~~ <br/>
-  -~~Delete:~~ <br/>
- 
- 
- 
+| create |          |   |   |   |
+|--------|----------|---|---|---|
+| read   | '/items' |   |   |   |
+|        |          |   |   |   |
+|        |          |   |   |   |
