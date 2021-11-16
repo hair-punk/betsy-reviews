@@ -22,7 +22,7 @@
   "homepage": "https://github.com/fec-team-2/reviews#readme",
   "dependencies": {
     "aws-s3": "^2.0.5",
-    "aws-sdk": "^2.462.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.0",
